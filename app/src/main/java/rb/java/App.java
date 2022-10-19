@@ -4,11 +4,9 @@
 package rb.java;
 
 
-/* 
 import com.rollbar.notifier.Rollbar;
 import java.util.HashMap;
 import java.util.Map;
-*/
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,13 +24,35 @@ public class App {
 
     public static void main(String[] args) throws Exception{
 
-        LOGGER.error("Starting main method");
+        RollbarConfig config = new RollbarConfig();
+        Rollbar rollbar = config.rollbar();
 
-        Work w = new Work();
-        w.doWorkTwo();
-        System.out.println(new App().getGreeting());
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("custom_field_1", "1234");
+        map.put("custom_field_2", "5678");
 
-        // TODO: Verify that app is configured to ensure last log messages complely send before exitting
-        Thread.sleep(15000);
+
+        try{
+            LOGGER.info("Starting main method");
+            rollbar.info("Application has started");
+
+            Work w = new Work();
+            w.doWorkTwo();
+            System.out.println(new App().getGreeting());
+
+            throw new Exception(" Bad Error");
+        }
+        catch(Exception ex)
+        {
+            rollbar.error(ex,  map, "Fatal Error - Application exitting");
+        }
+        finally{
+            // Force last occurrences of rollbar object to be completely sent before exitting
+            rollbar.close(true);
+
+            // Give time for all LOGGER occurrences to be completed before exitting
+            // LOGGER batches occurrences
+            Thread.sleep(16000);
+        }
     }
 }
