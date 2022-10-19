@@ -1,2 +1,4 @@
 # java-app
-A Java command line application show cases various Rollbar configurations
+A Java command line application show cases various Rollbar configuration
+
+##s
