@@ -33,10 +33,6 @@ public class RollbarConfig implements ConfigProvider {
 
     boolean enabled = true; // Easily enable/disable Rollbarin diff environments during implementation phase
 
-    if(environment != "production"){
-      enabled = false;
-    }
-
     Config config =  ConfigBuilder.withAccessToken(accessToken)
         .enabled(enabled)
         .context(new ContextProvider())
