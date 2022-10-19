@@ -17,7 +17,6 @@ public class CustomProvider implements Provider<Map<String, Object>>{
         // Fields that you want added to every error send to Rollbar
         Map customFields = new HashMap<String, Object>();
         customFields.put("cluster_id", "12345");
-        customFields.put("ip_address", "127.0.0.2");
 
         return customFields;
     }
