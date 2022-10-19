@@ -4,3 +4,8 @@ app/build/**
 .vscode/**
 gradle/**
 **/.DS_Store
+**/*.txt
+**/*.csv
+**/*.json
+**/*.xlsx
+
