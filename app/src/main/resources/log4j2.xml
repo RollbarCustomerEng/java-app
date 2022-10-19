@@ -7,7 +7,9 @@
 
     <Rollbar name="ROLLBAR">
       <configProviderClassName>rb.java.RollbarConfig</configProviderClassName>
-      <!-- <accessToken>********</accessToken> 
+      <!-- 
+      <accessToken>********</accessToken> 
+      <codeVersion>1.0.0</codeVersion>
       <environment>qa</environment>
       <enabled>true</enabled>
       -->
