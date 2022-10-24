@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 public class App {
 
+    // log4j2 logs are also sent to Rollbar .See spp/src/main/resources/log4j2.xml
     private static final Logger LOGGER = LoggerFactory.getLogger("rb.java");
 
     public String getGreeting() {

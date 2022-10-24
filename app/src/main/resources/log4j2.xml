@@ -6,7 +6,9 @@
     </Console>
 
     <Rollbar name="ROLLBAR">
+      <!-- The class that defines the Rollbar configuration -->
       <configProviderClassName>rb.java.RollbarConfig</configProviderClassName>
+
       <!-- 
       <accessToken>********</accessToken> 
       <codeVersion>1.0.0</codeVersion>

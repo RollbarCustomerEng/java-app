@@ -35,3 +35,9 @@ https://rollbar.com/ACCOUNT_NAME/PROJECT_NAME/settings/access_tokens/
 Execute the application
 
 ./gradlew run
+
+
+## Step 6
+Review app/src/main/java/rb/java/ConfigRollbar.java
+
+See how it references various Provider classes to add additional data to the occurrence payload
