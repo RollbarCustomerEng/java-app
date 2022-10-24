@@ -7,6 +7,11 @@ import com.rollbar.notifier.provider.Provider;
 
 public class CustomProvider implements Provider<Map<String, Object>>{
 
+    //
+    // A class that adds a hashmap of key/value pairs
+    // as custom fileds to the occurrence payload
+    //
+
     public CustomProvider(){
     }
 
@@ -14,7 +19,9 @@ public class CustomProvider implements Provider<Map<String, Object>>{
     @Override
     public Map<String, Object> provide() {
 
-        // Fields that you want added to every error send to Rollbar
+        //
+        // Fields that you want added to every occurrence sent to Rollbar
+        //
         Map customFields = new HashMap<String, Object>();
         customFields.put("cluster_id", "12345");
 

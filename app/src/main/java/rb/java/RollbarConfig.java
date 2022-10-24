@@ -1,8 +1,5 @@
 package rb.java;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.rollbar.notifier.Rollbar;
 
 import com.rollbar.notifier.config.Config;
@@ -26,13 +23,15 @@ public class RollbarConfig implements ConfigProvider {
   @Override
   public Config provide(ConfigBuilder configBuilder) {
 
+    // Read important settings from environment variables/config file
     String accessToken = System.getenv("rollbar_access_token");
     String environment = System.getenv("rollbar_environment");
     String codeVersion = System.getenv("rollbar_code_version");
 
+    // Easily enable/disable Rollbar in different environments during implementation phase
+    boolean enabled = true;
 
-    boolean enabled = true; // Easily enable/disable Rollbarin diff environments during implementation phase
-
+    // See each provider/transformer class for more details
     Config config =  ConfigBuilder.withAccessToken(accessToken)
         .enabled(enabled)
         .context(new ContextProvider())

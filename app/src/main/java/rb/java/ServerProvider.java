@@ -6,6 +6,18 @@ import com.rollbar.api.payload.data.Server;
 
 class ServerProvider implements Provider<Server> {
 
+    //
+    // A class to provide details about the server. Proper configuration is required to
+    // ensure that:
+    // The source control integration works as expected
+    // It is clear when the same Item occurs in more than one environment
+    // 
+    // * code branch - if the code is not on the default code branch
+    // * code version - if not already set at initialization
+    // * host - The name of the server hosting the application
+    // * root - parts of the file path
+    //
+
     @Override
     public Server provide() {
  

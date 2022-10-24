@@ -10,6 +10,14 @@ import java.util.HashMap;
 
 public class PayloadTransformer implements Transformer {
 
+  //
+  // A class used to do advanced modificication of the 
+  // occurrence payload before the payload gets sent to 
+  // api.rollbar.com
+  //
+  // Often used to do advanced data scrubbing or to add/remove data 
+  // from the occurrence payload
+  // 
 
     @Override
     public Data transform(Data data) {
@@ -18,14 +26,13 @@ public class PayloadTransformer implements Transformer {
 
       // Do advanced data scrubbing of parts of the payload e.g. data.getBody().
 
-      // create a new Hashmap for custom data
-      // if no custom data is in the payload
+      // Create a Custom object if the payload does not have any custom data
       Map<String,Object> map = newData.getCustom();
       if(map == null) {
         map = new HashMap<String, Object>();
       }
       
-      // add a custom field in the transform method
+      // Add additional data fields. See also CustomProvider.java
       map.put("customer_id", "cust_6789");
       map.put("request_id", "req_1234567890");
 
